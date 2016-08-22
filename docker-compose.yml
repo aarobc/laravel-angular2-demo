@@ -1,0 +1,28 @@
+version: '2'
+
+networks:
+  net:
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - net
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+
+  web:
+    image: aarobc/laravel-base
+    volumes:
+      - ./src:/var/www/laravel
+    networks:
+      - net
+    env_file: config.env
+    ports:
+      - "80:80"
+      - "443:443"
+
