@@ -9,7 +9,7 @@
         <meta charset=UTF-8>
         <meta name=viewport content="width=device-width,initial-scale=1">
         <meta id="token" name="token" value="{{ csrf_token() }}">
-        <!-- <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}"> -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
     </head>
     <body>
         <my-app>Loading...</my-app>
