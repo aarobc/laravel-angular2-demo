@@ -4,7 +4,7 @@
     <head>
         <base href=/ >
 
-        <title>Angular With Webpack</title>
+        <title>Demo</title>
 
         <meta charset=UTF-8>
         <meta name=viewport content="width=device-width,initial-scale=1">

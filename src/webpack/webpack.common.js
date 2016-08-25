@@ -3,11 +3,21 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('../helpers');
 
+// workaround because fonts webpack weirdness
+var ncp = require('ncp').ncp;
+var source = "node_modules/bootstrap-sass/assets/fonts/bootstrap"
+var destination = "public/fonts"
+ncp(source, destination, function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('done!');
+})
 module.exports = {
   entry: {
     polyfills: './resources/assets/typescript/polyfills.ts',
     vendor: './resources/assets/typescript/vendor.ts',
-    app: './resources/assets/typescript/main.ts'
+    app: './resources/assets/typescript/main.ts',
   },
 
   resolve: {
@@ -25,8 +35,12 @@ module.exports = {
         loader: 'html'
       },
       {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        test: /\.(png|jpe?g|gif)$/,
         loader: 'file?name=assets/[name].[hash].[ext]'
+      },
+      {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file?name=public/fonts/[name].[ext]'
       },
       {
         test: /\.css$/,

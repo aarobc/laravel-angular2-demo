@@ -1,2 +1,17 @@
+$icon-font-path: "fonts/";
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+body {
+  padding-top: 100px;
+}
+.content{
+  padding: 40px 15px;
+  text-align: center;
+}
 
+.rm{
+  float:right;
+}
+
+#newer{
+  width: 100%;
+}

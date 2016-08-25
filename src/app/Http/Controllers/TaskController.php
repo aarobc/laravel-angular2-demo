@@ -18,7 +18,7 @@ class TaskController extends Controller
     {
         //
         $tasks = Task::all();
-        return $tasks;
+        return ['tasks' => $tasks];
     }
 
     /**
@@ -32,9 +32,9 @@ class TaskController extends Controller
         //
         $task = new Task;
         $dat = $request->all();
-
-        $device->fill($task);
-        return $device;
+        $task->fill($dat);
+        $task->save();
+        return $task;
     }
 
     /**
@@ -63,7 +63,7 @@ class TaskController extends Controller
         ]);
 
         $dat = $request->all();
-        $task=>fill($dat);
+        $task->fill($dat);
     }
 
     /**
