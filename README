@@ -1,1 +1,13 @@
-Demo of a todo app using angular and laravel
+#Demo of a todo app using angular and laravel
+
+I've created a docker environment so you don't have to mess around with configuration
+instructions:
+- install docker and docker-compose
+- `docker-compose run --rm composer install`
+- `docker-compose run --rm npm install`
+- `docker-compose run --rm npm run build`
+- `docker-compose up -d`
+
+to stop:
+`docker-compose stop`
+
