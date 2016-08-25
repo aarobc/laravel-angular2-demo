@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class TasksSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(TasksSeeder::class);
+        //
+        \DB::table('tasks')->delete();
+        factory(App\Models\Task::class, 10)->create();
     }
 }
