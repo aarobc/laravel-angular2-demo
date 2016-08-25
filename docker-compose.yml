@@ -16,13 +16,23 @@ services:
         MYSQL_ROOT_PASSWORD: secret
 
   web:
-    image: aarobc/laravel-base
-    volumes:
-      - ./src:/var/www/laravel
+    # image: aarobc/laravel-base
+    build: .
     networks:
       - net
     env_file: config.env
     ports:
       - "80:80"
       - "443:443"
+
+  # development:
+  #   image: aarobc/laravel-base
+  #   volumes:
+  #     - ./src:/var/www/laravel
+  #   networks:
+  #     - net
+  #   env_file: config.env
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
 
